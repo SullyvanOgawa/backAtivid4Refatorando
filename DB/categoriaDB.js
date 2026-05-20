@@ -1,5 +1,5 @@
-import Categoria from "../model/categoria.js";
-import obterConexao from "./conexaoDB.js";
+import Categoria from "../Model/categoria.js";
+import obterConexao from "./conexao.js";
 
 
 export default class CategoriaDB {
