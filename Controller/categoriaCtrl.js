@@ -40,7 +40,7 @@ export default class CategoriaCtrl{
     }
 
     async editar(requisicao, resposta){
-        if(requisicao.method === "PUT" || requisicao.method === "PATCH" && requisicao.is("application/json")){
+        if((requisicao.method === "PUT" || requisicao.method === "PATCH") && requisicao.is("application/json")){
             const id = requisicao.params.id;
             const nome = requisicao.body.nome;
             const descricao = requisicao.body.descricao;
