@@ -76,10 +76,9 @@ export default class CategoriaDB {
         let listCategorias = [];
 
         for(const resultado of resultados[0]){
-            const categoria = new Categoria(
-                resultado.cat_id,
-                resultado.cat_nome,
-                resultado.cat_descricao
+            const categoria = new Categoria(resultado.cat_id,
+                                            resultado.cat_nome,
+                                            resultado.cat_descricao
             );
 
             listCategorias.push(categoria);

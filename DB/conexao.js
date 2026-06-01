@@ -7,7 +7,7 @@ export default async function obterConexao(){
     }
     else{
         global.poolConexoes = mysql.createPool({
-             host: 'localhost',
+            host: 'localhost',
             user: 'root', 
             database: 'atividade_db',
             waitForConnections: true,
