@@ -1,15 +1,15 @@
-const express = require('express');
-const app = express();
+import express from 'express';
+// import rotaCategoria from './Routes/rotaCategoria.js';
+// import rotaProduto from './Routes/rotaProduto.js';
 
+const app = express();
 const PORT = 3000;
 
 app.use(express.json());
 
-const categoriaRoutes = require('.Routes/rotaCategoria');
-const produtoRoutes = require('./Routes/rotaProduto');
 
-app.use('/api/categoria', categoriaRoutes);
-app.use('/api/produto', produtoRoutes);
+// app.use('/api/categoria', rotaCategoria);
+// app.use('/api/produto', rotaProduto);
 
 app.get('/', (requisicao, resposta) => {
     resposta.json({ status: 'API Rodando!' });
