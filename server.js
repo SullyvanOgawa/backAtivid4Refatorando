@@ -1,6 +1,6 @@
 import express from 'express';
 import rotaCategoria from './Routes/rotaCategoria.js';
-// import rotaProduto from './Routes/rotaProduto.js';
+import rotaProjeto from './Routes/rotaProjeto.js';
 
 const app = express();
 const PORT = 3000;
@@ -9,7 +9,7 @@ app.use(express.json());
 
 
 app.use('/api/categoria', rotaCategoria);
-// app.use('/api/produto', rotaProduto);
+app.use('/api/projeto', rotaProjeto);
 
 app.get('/', (requisicao, resposta) => {
     resposta.json({ status: 'API Rodando!' });
