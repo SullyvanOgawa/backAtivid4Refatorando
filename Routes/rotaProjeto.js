@@ -1,6 +1,6 @@
 
 import {Router} from 'express';
-import pool from '../db.js';
+import pool from '../dataBase/db.js';
 
 const rotaProjeto = Router();
 
