@@ -32,4 +32,12 @@ export default class Categoria{
     set projeto(projeto){
         this.#projeto = projeto;
     }
+
+    toJSON(){
+        return {
+            id: this.#id,
+            nome: this.#nome,
+            projeto: this.#projeto
+        }
+    }
 }
