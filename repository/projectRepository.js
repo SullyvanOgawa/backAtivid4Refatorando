@@ -14,6 +14,33 @@ export default class ProjectRepository{
         return project.id;
     }
 
+    async consultar(termoBusca){
+       let sql = "";
+       let parametros = [];
+
+       if(!isNaN(Number(termoBusca)) && Number(termoBusca) > 0){
+           sql = 'SELECT proj_id, proj_nome FROM projeto WHERE proj_id = ?';
+           parametros = [termoBusca];
+       }
+       else{
+           sql = 'SELECT proj_id, proj_nome FROM projeto WHERE proj_nome LIKE ?';
+           parametros = [`%${termoBusca}%`];
+       }
+
+       const conexao = await pool.getConnection();
+       const resultados = await conexao.query(sql, parametros);
+       conexao.release();
+
+       let listProjects = [];
+
+       for(const resultado of resultados[0]){
+           const project = new Project(resultado.proj_id, resultado.proj_nome);
+           listProjects.push(project);
+       }
+
+       return listProjects;
+    }
+
     
 
 }
