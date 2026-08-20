@@ -1,6 +1,6 @@
 
 import Project from '../model/project.js';
-import ProjectRepository from '../repository/projetoRepository.js';
+import ProjectRepository from '../repository/projectRepository.js';
 
 export default class ProjectService{
     constructor(){
