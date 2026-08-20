@@ -2,16 +2,16 @@
 import pool from '../dataBase/db.js';
 
 export default class ProjectRepository{
-    async gravar(projeto){
+    async gravar(project){
         const sql = 'INSERT INTO projeto (proj_nome) VALUES (?)';
 
-        const parametros = [projeto.nome];
+        const parametros = [project.name];
 
-        const conexao = await pool();
+        const conexao = await pool.getConnection();
         const resultado = await conexao.execute(sql, parametros);
-        projeto.id = resultado[0].insertId;
-
-        conexao.release();
+        project.id = resultado[0].insertId;
+       
+        return project.id;
     }
 
     

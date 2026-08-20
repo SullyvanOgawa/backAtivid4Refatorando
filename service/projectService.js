@@ -9,10 +9,11 @@ export default class ProjectService{
 
     async gravar(projects){
 
-        const project = new Project(projects.name);
+        const project = new Project(null, projects.name);
 
         const id = await this.projectRepository.gravar(project);
         project.id = id;
+        
         return project;
     }
 }

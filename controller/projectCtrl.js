@@ -3,7 +3,6 @@ import ProjectService from '../service/projectService.js';
 export default class ProjectCtrl{
     constructor(){
         this.projectService = new ProjectService();
-
     }
 
     async gravar(request, response){
