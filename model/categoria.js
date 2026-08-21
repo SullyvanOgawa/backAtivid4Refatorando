@@ -1,12 +1,11 @@
 
 export default class Categoria{
     #id;
-    #nome;
-    #projeto;
+    #name;
 
-    constructor(id, nome){
+    constructor(id, name){
         this.#id = id;
-        this.#nome = nome;
+        this.#name = name;
     }
 
     get id(){
@@ -17,27 +16,19 @@ export default class Categoria{
         this.#id = id;
     }
 
-    get nome(){
-        return this.#nome;
+    get name(){
+        return this.#name;
     }
 
-    set nome(nome){
-        this.#nome = nome;
+    set name(name){
+        this.#name = name;
     }
 
-    get projeto(){
-        return this.#projeto;
-    }
-
-    set projeto(projeto){
-        this.#projeto = projeto;
-    }
 
     toJSON(){
         return {
             id: this.#id,
-            nome: this.#nome,
-            projeto: this.#projeto
+            name: this.#name
         }
     }
 }
