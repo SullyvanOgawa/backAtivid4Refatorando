@@ -1,5 +1,5 @@
 
-export default class Categoria{
+export default class Category{
     #id;
     #name;
 
