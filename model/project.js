@@ -2,12 +2,12 @@
 export default class Project{
     #id;
     #name;
-    #categoria;
+    #category;
 
-    constructor(id, name, categoria){
+    constructor(id, name, category){
         this.#id = id;
         this.#name = name;
-        this.#categoria = categoria;
+        this.#category = category;
     }
 
     get id(){
@@ -26,19 +26,19 @@ export default class Project{
         this.#name = name;
     }
 
-    get categoria(){
-        return this.#categoria;
+    get category(){
+        return this.#category;
     }   
 
-    set categoria(categoria){
-        this.#categoria = categoria;
+    set category(category){
+        this.#category = category;
     }
 
     toJSON(){
         return {
             id: this.#id,
             name: this.#name,
-            categoria: this.#categoria
+            category: this.#category
         }
         
     }

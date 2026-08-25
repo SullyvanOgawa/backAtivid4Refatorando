@@ -1,6 +1,6 @@
 
 import Project from '../model/project.js';
-import Categoria from '../model/category.js';
+import Category from '../model/category.js';
 import ProjectRepository from '../repository/projectRepository.js';
 
 export default class ProjectService{
@@ -10,13 +10,13 @@ export default class ProjectService{
 
     async gravar(projects){
 
-        const category = new Categoria(
-                            projects.category.id, 
+        const category = new Category(
+                            projects.category.id,
                             projects.category.name
                         );
 
         const project = new Project(
-                            null, 
+                            null,
                             projects.name, 
                             category
                         );

@@ -7,10 +7,10 @@ export default class CategoryService{
         this.categoryRepository = new CategoryRepository();
     }
 
-    async gravar(categorias){
+    async gravar(categories){
         const category = new Category(
-                                null, 
-                                categorias.name
+                                null,
+                                categories.name
                             );
 
         const id = await this.categoryRepository.gravar(category);

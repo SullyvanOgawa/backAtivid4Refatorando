@@ -9,9 +9,10 @@ export default class CategoryRepository{
         const conexao = await pool.getConnection();
         const resultado = await conexao.execute(sql, parametros);
         category.id = resultado[0].insertId;
-       
-        return category.id;
+
+        conexao.release();
     }
 
 
 }
+

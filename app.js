@@ -7,8 +7,7 @@ const app = express();
 
 app.use(express.json());
 
-app.use('/category', routerCategory);
-app.use('/project', routerProject );
+app.use('/', routerCategory);
+app.use('/', routerProject );
 
-
-app.listen(port, localhost, () => console.log(`API Executando na porta ${port}`));
+export default app;
