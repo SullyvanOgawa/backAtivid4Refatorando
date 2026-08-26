@@ -85,9 +85,7 @@ export default class ProjectCtrl{
 
             const termoBusca = request.params.id ?? '';
 
-            const projects = await this.projectService.consultar(
-                termoBusca
-            );
+            const projects = await this.projectService.consultar(termoBusca);
 
             response.status(200).json({
                 status: true,
@@ -100,8 +98,8 @@ export default class ProjectCtrl{
 
             response.status(500).json({
                 status: false,
-                mensagem: 'Não foi possível consultar os projetos',
-                erro: error.message
+                mensagem: 'Não foi possível consultar os projetos' + error.message
+               
             });
 
         }

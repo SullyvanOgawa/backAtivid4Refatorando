@@ -49,10 +49,7 @@ export default class ProjectRepository{
         let sql;
         let parametros;
 
-        if (
-            !isNaN(Number(termoBusca)) &&
-            Number(termoBusca) > 0
-        ) {
+        if (!isNaN(Number(termoBusca)) && Number(termoBusca) > 0) {
 
             sql = `
                 SELECT

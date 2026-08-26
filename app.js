@@ -1,5 +1,4 @@
 import express from 'express';
-// import cors from 'cors';
 import routerCategory from './routes/routerCategory.js';
 import routerProject from './routes/routerProject.js';
 

@@ -25,9 +25,66 @@ export default class CategoryCtrl{
         }
     }
 
-    async editar(request, response){}
+    async editar(request, response){
+        try{
 
-    async excluir(request, response){}
+            const id = request.params.id;
+            const category = await this.categoryService.editar(id, request.body);
 
-    async consultar(request, response){}
+            response.status(200).json({
+                status:true,
+                mensagem: 'Categoria editada com sucesso.',
+                category: category
+            });
+
+        }
+        catch(error){
+            response.status(500).json({
+                status: false,
+                mensagem: 'Erro ao editar a categoria.' + error.message
+            });
+        }
+    }
+
+    async excluir(request, response){
+        try{
+
+            const id = request.params.id;
+            await this.categoryService.excluir(id);
+
+            response.status(200).json({
+                status: true,
+                mensagem: 'Categoria excluída com sucesso.'
+            });
+
+        }
+        catch(error){
+            response.status(500).json({
+                status: false,
+                mensagem: 'Erro ao excluir categoria.' + error.message
+            });
+        }
+    }
+
+    async consultar(request, response){
+        try{
+            const termoBusca = request.params.id ?? '';
+            const categories = await this.categoriaService.consultar(termoBusca);
+
+            response.status(200).json({
+                status: true,
+                mensagem: 'Consulta realizada com sucesso.',
+                categories: categories
+            });
+
+        }
+        catch(error){
+            response.status(500).json({
+                status: false,
+                mensagem: 'Erro ao consultar categorias.' + error.message
+            });
+        }
+    }
+    
+    
 }

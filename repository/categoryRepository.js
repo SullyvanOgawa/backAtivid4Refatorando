@@ -1,3 +1,4 @@
+import Category from '../model/category.js';
 import pool from "../dataBase/db.js";
 
 export default class CategoryRepository{
@@ -13,7 +14,50 @@ export default class CategoryRepository{
         conexao.release();
     }
 
-    
+    async editar(category){
+        const sql = 'UPDATE categoria SET cat_nome = ? WHERE cat_id = ?';
+
+        const parametros = [category.name, category.id];
+
+        const conexao = await pool.getConnection();
+        await conexao.execute(sql, parametros);
+        conexao.release();
+    }
+
+    async excluir(id){
+        const sql = 'DELETE FROM categoria WHERE cat_id = ?';
+
+        const conexao = await pool.getConnection();
+        await conexao.execute(sql, [id]);
+        conexao.release();
+    }
+
+    async consultar(termoBusca){
+        let sql = '';
+        let parametros = [];
+
+        if(!isNaN(Number(termoBusca)) && Number(termoBusca) > 0){
+            sql = 'SELECT * FROM categoria WHERE cat_id = ?';
+            parametros = [termoBusca];
+        }
+        else{
+            sql = 'SELECT * FROM categoria WHERE cat_nome LIKE ?';
+            parametros = [`%${termoBusca}%`];
+        }
+
+        const conexao = await pool.getConnection();
+        const resultados = await conexao.execute(sql, parametros);
+        conexao.release();
+
+        let listCategorias = [];
+
+        for(const resultado of resultados){
+            const category = new Category(resultado.id, resultado.name);
+            listCategorias.push(category);
+        }
+
+        return listCategorias;
+    }
 
 
 }

@@ -18,4 +18,25 @@ export default class CategoryService{
         
         return category;
     }
+
+    async editar(id, categories){
+        const category = new Category(
+            id, 
+            categories.name
+        );
+
+        await this.categoryRepository.editar(category);
+
+        return category;
+    }
+
+    async excluir(id){
+        await this.categoryRepository.excluir(id);
+    }
+
+    async consultar(termoBusca){
+        const categories = await this.categoryRepository.consultar(termoBusca);
+
+        return categories;
+    }
 }
