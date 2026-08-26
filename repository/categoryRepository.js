@@ -53,7 +53,7 @@ export default class CategoryRepository{
         let listCategorias = [];
 
         for(const resultado of resultados[0]){
-            const category = new Category(resultado.id, resultado.name);
+            const category = new Category(resultado.cat_id, resultado.cat_nome);
             
             listCategorias.push(category);
         }
