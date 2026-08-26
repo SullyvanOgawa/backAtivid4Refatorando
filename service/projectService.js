@@ -26,4 +26,39 @@ export default class ProjectService{
         
         return project;
     }
+
+      async editar(id, projects) {
+
+        const category = new Category(
+            projects.category.id,
+            projects.category.name
+        );
+
+        const project = new Project(
+            id,
+            projects.name,
+            category
+        );
+
+        await this.projectRepository.editar(project);
+
+        return project;
+    }
+
+
+    async excluir(id) {
+
+        await this.projectRepository.excluir(id);
+
+    }
+
+
+    async consultar(termoBusca) {
+
+        const projects = await this.projectRepository.consultar(termoBusca);
+
+        return projects;
+    }
+
+    
 }

@@ -13,6 +13,8 @@ export default class CategoryRepository{
         conexao.release();
     }
 
+    
+
 
 }
 

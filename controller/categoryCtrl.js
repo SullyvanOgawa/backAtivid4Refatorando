@@ -24,4 +24,10 @@ export default class CategoryCtrl{
             });
         }
     }
+
+    async editar(request, response){}
+
+    async excluir(request, response){}
+
+    async consultar(request, response){}
 }
