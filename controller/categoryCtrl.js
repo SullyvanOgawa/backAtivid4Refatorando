@@ -69,12 +69,13 @@ export default class CategoryCtrl{
     async consultar(request, response){
         try{
             const termoBusca = request.params.id ?? '';
-            const categories = await this.categoriaService.consultar(termoBusca);
+            
+            const category = await this.categoryService.consultar(termoBusca);
 
             response.status(200).json({
                 status: true,
                 mensagem: 'Consulta realizada com sucesso.',
-                categories: categories
+                category: category
             });
 
         }

@@ -47,7 +47,7 @@ export default class ProjectRepository{
     async consultar(termoBusca) {
 
         let sql;
-        let parametros;
+        let parametros = [];
 
         if (!isNaN(Number(termoBusca)) && Number(termoBusca) > 0) {
 
@@ -83,21 +83,21 @@ export default class ProjectRepository{
         }
 
         const conexao = await pool.getConnection();
-        const resultado = await conexao.execute(sql, parametros);
+        const resultados = await conexao.execute(sql, parametros);
         conexao.release();
 
             let listaProjetos = [];
 
-            for (const registro of resultado[0]) {
+            for (const resultado of resultados[0]) {
 
                 const category = new Category(
-                    registro.cat_id,
-                    registro.cat_nome
+                    resultado.cat_id,
+                    resultado.cat_nome
                 );
 
                 const project = new Project(
-                    registro.proj_id,
-                    registro.proj_nome,
+                    resultado.proj_id,
+                    resultado.proj_nome,
                     category
                 );
 

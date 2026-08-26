@@ -17,6 +17,10 @@ routerProject.get('/project/', (request, response) => {
     projectCtrl.consultar(request, response);
 });
 
+routerProject.patch('/project/:id', (request, response) => {
+    projectCtrl.editar(request, response);
+});
+
 routerProject.put('/project/:id', (request, response) => {
     projectCtrl.editar(request, response);
 });

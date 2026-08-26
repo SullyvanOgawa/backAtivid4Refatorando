@@ -36,12 +36,13 @@ export default class CategoryRepository{
         let sql = '';
         let parametros = [];
 
-        if(!isNaN(Number(termoBusca)) && Number(termoBusca) > 0){
-            sql = 'SELECT * FROM categoria WHERE cat_id = ?';
+        if (!isNaN(Number(termoBusca)) && Number(termoBusca) > 0){
+            
+            sql = `SELECT cat_id, cat_nome FROM categoria WHERE cat_id = ?`;
             parametros = [termoBusca];
         }
         else{
-            sql = 'SELECT * FROM categoria WHERE cat_nome LIKE ?';
+            sql = `SELECT cat_id, cat_nome FROM categoria WHERE cat_nome LIKE ?`;
             parametros = [`%${termoBusca}%`];
         }
 
@@ -51,8 +52,9 @@ export default class CategoryRepository{
 
         let listCategorias = [];
 
-        for(const resultado of resultados){
+        for(const resultado of resultados[0]){
             const category = new Category(resultado.id, resultado.name);
+            
             listCategorias.push(category);
         }
 

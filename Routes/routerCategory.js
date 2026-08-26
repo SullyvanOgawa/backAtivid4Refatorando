@@ -12,7 +12,7 @@ routerCategory.get('/category/:id', (request, response) => {
     categoryCtrl.consultar(request, response);
 });
 
-routerCategory.get('/category/', (request, response) => {
+routerCategory.get('/category', (request, response) => {
     categoryCtrl.consultar(request, response);
 });
 
